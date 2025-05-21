@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Search</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #222;
+        color: #fff;
+        text-align: center;
+      }
+      .container {
+        padding: 20px;
+      }
+      .search-box {
+        padding: 12px;
+        margin-bottom: 20px;
+        width: 300px;
+        font-size: 16px;
+        border: 2px solid #ffcc00;
+        border-radius: 25px;
+        background-color: #333;
+        color: white;
+        text-align: center;
+      }
+      .search-box::placeholder {
+        color: #ffcc00;
+      }
+      .search-button {
+        padding: 12px 20px;
+        background-color: #ffcc00;
+        color: #222;
+        border: none;
+        border-radius: 25px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      .search-button:hover {
+        background-color: #ffaa00;
+      }
+      .sort-box {
+        margin-bottom: 20px;
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #444;
+        color: #fff;
+      }
+      .pokemon-card {
+        display: inline-block;
+        background: yellow;
+        color: black;
+        padding: 20px;
+        margin: 15px;
+        border-radius: 15px;
+        width: 220px;
+        text-align: center;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+        position: relative;
+      }
+      .pokemon-card img {
+        width: 120px;
+        height: 120px;
+      }
+      .pokemon-card .badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: red;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 10px;
+        font-weight: bold;
+      }
+      .pokemon-card .info {
+        font-size: 14px;
+        margin-top: 10px;
+      }
+      .pokemon-card .type {
+        background: lightblue;
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 10px;
+        margin-top: 5px;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input
+        type="text"
+        id="search"
+        placeholder="Search your Pokémon"
+        class="search-box"
+      />
+      <button onclick="searchPokemon()" class="search-button">Search</button>
+      <select id="sort" class="sort-box" onchange="sortPokemon()">
+        <option value="default">Sort by weight</option>
+        <option value="asc">Lightest to Heaviest</option>
+        <option value="desc">Heaviest to Lightest</option>
+      </select>
+      <button onclick="sortByAlphabet()" class="search-button">Sort A-Z</button>
+      <button onclick="sortByAlphabetReverse()" class="search-button">
+        Sort Z-A
+      </button>
+      <div id="pokemon-list"></div>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
